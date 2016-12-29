@@ -1,0 +1,6 @@
+/cpas-react-demo-portlet/target
+/cpas-react-demo-core/target
+/cpas-react-demo-iface/target
+/cpas-react-demo-portlet/*.iml
+/cpas-react-demo-core/*.iml
+/cpas-react-demo-iface/*.iml

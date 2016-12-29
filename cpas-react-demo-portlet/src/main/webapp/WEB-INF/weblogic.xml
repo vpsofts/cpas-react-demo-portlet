@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<weblogic-web-app xmlns="http://www.bea.com/ns/weblogic/90" xmlns:j2ee="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.bea.com/ns/weblogic/90 http://www.bea.com/ns/weblogic/90/weblogic-web-app.xsd">
+
+    <jsp-descriptor>
+        <keepgenerated>true</keepgenerated>
+        <page-check-seconds>60</page-check-seconds>
+    </jsp-descriptor>
+
+    <session-descriptor>
+        <persistent-store-type>replicated_if_clustered</persistent-store-type>
+        <cookie-secure>true</cookie-secure>
+    </session-descriptor>
+
+    <container-descriptor>
+        <prefer-application-packages>
+            <package-name>antlr.*</package-name>
+            <package-name>com.ctc.wstx.*</package-name>
+            <package-name>org.antlr.*</package-name>
+            <package-name>org.apache.commons.lang.*</package-name>
+            <package-name>org.mozilla.*</package-name>
+            <package-name>org.xmlpull.*</package-name>
+            <package-name>org.apache.commons.fileupload.*</package-name>
+        </prefer-application-packages>
+        <optimistic-serialization>true</optimistic-serialization>
+        <show-archived-real-path-enabled>true</show-archived-real-path-enabled>
+    </container-descriptor>
+</weblogic-web-app>

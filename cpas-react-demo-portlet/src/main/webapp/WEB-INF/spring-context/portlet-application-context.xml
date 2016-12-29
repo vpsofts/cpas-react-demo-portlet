@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!--Enables @Autowired annotation-->
+    <context:annotation-config/>
+
+    <import resource="classpath*:cpas-ibacz-utils-context.xml" />
+
+    <!-- Application exception handling -->
+    <bean class="org.springframework.web.portlet.handler.SimpleMappingExceptionResolver">
+        <property name="exceptionMappings">
+            <props>
+                <prop key="eu.ibacz.commons.exception.PermissionException">errorPermission</prop>
+                <prop key="java.lang.Exception">error</prop>
+            </props>
+        </property>
+    </bean>
+ 
+    <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+        <property name="useCodeAsDefaultMessage" value="true" />
+        <property name="basenames">
+            <list>
+                <value>content.Language-ext</value>
+                <value>content.common-messages</value>
+            </list>
+        </property>
+    </bean>
+
+    <!-- Spring MVC VIEW Configuration -->
+    <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
+        <property name="contentType" value="text/html;charset=UTF-8" />
+        <property name="prefix" value="/WEB-INF/jsp/" />
+        <property name="suffix" value=".jsp" />
+    </bean>
+
+</beans>
