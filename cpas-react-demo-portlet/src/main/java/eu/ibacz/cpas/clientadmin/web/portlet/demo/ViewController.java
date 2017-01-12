@@ -61,7 +61,7 @@ public class ViewController {
 
 		try {
 			writer = new OutputStreamWriter(response.getPortletOutputStream(), "UTF-8");
-			writer.write("{hello: 'plantážník'}");
+			writer.write("{\"hello\":\"plantážník\"}");
 
 		} catch (IOException e) {
 			IOUtils.closeQuietly(writer);
